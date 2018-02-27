@@ -46,12 +46,17 @@ function setup() {
 	dif = differenceOnSeconds(standardTime(iniDate), standardTime(actDate));
 
 	var date = select('#date');
+	var dateOff = select('#dateOff');
 	
 	var interval = setInterval(timeIt, 1000);
 
 	function timeIt() {
+		//offset entre tiempo del servidor y el del navegador
+		this.calcOff = ServerDate- new Date();
 		//incrento del contador
 		counter++;
+		//asignael offset al elemento DOM #dateOff
+		dateOff.html(this.calcOff);
 		//asigna el valor obtenido con convertSeconds al elemento DOM
 		date.html('faltan ' + convertSeconds(dif - counter));
 		//detiene el intervalo al llegar a 0
