@@ -18,7 +18,7 @@ function draw() {
 	var browser = new Date().getTime();
 	var standard = standardTime();
 	var offset = ServerDate - new Date();
-	var synchronized = standard  + (offset*-1);
+	var synchronized = standard  + (offset);
 
 	background(255);
 
