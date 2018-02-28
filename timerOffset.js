@@ -1,4 +1,6 @@
-var Pbrowser, Pstandar, Poffset, Psynchronized;
+var Pbrowser, Pstandar, Poffset, Psynchronized, Pcounter;
+var counter = 0;
+var color;
 
 
 function standardTime () {
@@ -12,6 +14,7 @@ function setup() {
 	Pstandard = select('#standard');
 	Poffset = select('#offset');
 	Psynchronized = select('#synchronized');
+	Pcounter = select('#counter');
 }
 
 function draw() {
@@ -26,17 +29,19 @@ function draw() {
 	noStroke();
 
 	if(float<5){
-		fill(255);
+		color = 0;
 	}else{
-		fill(0);
+		color = 255;
 	}
+	counter = floor(synchronized/1000);
 	ellipseMode(CENTER,CENTER);
+	fill(color);
 	ellipse(200,200,100,100);
 
 	Pbrowser.html('brow ' + browser);
 	Pstandard.html('stan ' + standard);
 	Poffset.html('offs ' + offset);
 	Psynchronized.html('sync ' + synchronized);
-
+	Pcounter.html(counter);
 	
 }
