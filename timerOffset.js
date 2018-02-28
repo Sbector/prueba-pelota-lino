@@ -20,10 +20,23 @@ function draw() {
 	var offset = ServerDate - new Date();
 	var synchronized = standard  + (offset);
 
+	var float = synchronized%1000/100;
+
 	background(255);
+	noStroke();
+
+	if(float<5){
+		fill(255);
+	}else{
+		fill(0);
+	}
+	ellipseMode(CENTER,CENTER);
+	ellipse(200,200,100,100);
 
 	Pbrowser.html('brow ' + browser);
 	Pstandard.html('stan ' + standard);
 	Poffset.html('offs ' + offset);
 	Psynchronized.html('sync ' + synchronized);
+
+	
 }
